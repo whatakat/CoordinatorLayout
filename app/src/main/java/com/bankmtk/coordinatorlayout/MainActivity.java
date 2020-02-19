@@ -1,5 +1,6 @@
 package com.bankmtk.coordinatorlayout;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
             "But could we assume that I have said all off that. " +
             "Essentially we are talking about fluid exchange, right? " +
             "So, could we just go straight to the ...? ";
+    private Toolbar toolbar;
 
 
     @Override
@@ -57,11 +60,27 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        final Activity that = this;
+        switch (id){
+            case R.id.action_settings:
+                Snackbar.make(toolbar,"You have chosen settings",Snackbar.LENGTH_LONG)
+                        .setAction("Button", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(that.getApplicationContext(),"Button in Snackbar was passed",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        }).show();
+                return true;
+            case R.id.action_preferences:
+                Snackbar.make(toolbar,"You have chosen menu preferences",Snackbar.LENGTH_LONG).show();
+                return true;
+            case R.id.action_params:
+                Snackbar.make(toolbar,"You have chosen menu params",
+                        Snackbar.LENGTH_LONG).show();
+                return true;
         }
-
         return super.onOptionsItemSelected(item);
+
     }
 }
