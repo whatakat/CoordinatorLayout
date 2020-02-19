@@ -11,8 +11,16 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private final static String TEXT_CONTENT = "I don't know what I'm " +
+            "required to say... to order for you to have intercourse with me. " +
+            "But could we assume that I have said all off that. " +
+            "Essentially we are talking about fluid exchange, right? " +
+            "So, could we just go straight to the ...? ";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
