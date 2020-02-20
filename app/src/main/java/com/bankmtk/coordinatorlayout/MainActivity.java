@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         TextView content = findViewById(R.id.content);
@@ -62,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
         final Activity that = this;
         switch (id){
+
             case R.id.action_settings:
-                Snackbar.make(toolbar,"You have chosen settings",Snackbar.LENGTH_LONG)
+                Snackbar.make(toolbar,"You have chosen settings", Snackbar.LENGTH_LONG)
                         .setAction("Button", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
